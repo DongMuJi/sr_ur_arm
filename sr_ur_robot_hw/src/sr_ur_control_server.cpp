@@ -256,7 +256,7 @@ void UrControlServer::start()
 void UrControlServer::stop()
 {
   ROS_ASSERT(ur_);
-  ROS_INFO("UrArmController of %s robot stops the control server", ur_->robot_side_);
+  printf("UrArmController of %s robot stops the control server", ur_->robot_side_);
   send_message(MSG_STOPJ);
   send_teach_mode_command(0);
 

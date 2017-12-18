@@ -50,10 +50,11 @@ void UrRobotDriver::start()
 
 void UrRobotDriver::stop()
 {
-  ROS_INFO("UrArmController stops communicating with the %s robot", robot_side_);
+  printf("\n***UrRobotDriver stopping***\n");
+  // ROS_INFO("UrArmController stops communicating with the %s robot", robot_side_);
 
-  el_         ->stop();
-  ctrl_server_->stop();
+  // el_         ->stop();
+  // ctrl_server_->stop();
   rs_client_  ->stop();
 
   delete rs_client_;

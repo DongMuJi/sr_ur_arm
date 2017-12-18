@@ -84,13 +84,17 @@ void UrEventLoop::start()
 // the event loop will actually terminate after pending callbacks return
 void UrEventLoop::stop()
 {
+  printf("\n***UrEventLoop stopping***\n");
   ROS_ASSERT(ur_);
 
+  printf("\n***Telling uv event loop to stop***\n");
   uv_stop(event_loop_);
 
   // wait for event_loop_ to actually terminate before deleting
   void *value;
+  printf("\n***Waiting for uv event loop to stop***\n");
   pthread_join(asynchronous_io_, &value);
+  printf("\n***uv event loop stopping***\n");
 
   uv_loop_delete(event_loop_);
 }

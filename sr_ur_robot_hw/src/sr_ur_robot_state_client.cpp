@@ -204,6 +204,7 @@ void UrRobotStateClient::start()
 
 void UrRobotStateClient::stop()
 {
+  printf("\n***UrRobotStateClient stopping***\n");
   pthread_mutex_destroy(&ur_->robot_state_mutex_);
   uv_close((uv_handle_t*)&tcp_stream_, NULL);
   free(buffer_.base);
